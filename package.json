@@ -1,0 +1,25 @@
+{
+  "name": "geri-soft-helper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "dev": "wrangler dev --config worker/wrangler.toml",
+    "deploy": "wrangler deploy --config worker/wrangler.toml",
+    "db:migrate:local": "wrangler d1 migrations apply gs-helper --local --config worker/wrangler.toml",
+    "db:migrate:remote": "wrangler d1 migrations apply gs-helper --remote --config worker/wrangler.toml",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.0.0",
+    "wrangler": "^4.0.0"
+  }
+}
